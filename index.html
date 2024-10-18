@@ -83,6 +83,7 @@
 
             if (localStorage.hasVoted) {
                 document.getElementById('confirmation').innerText = 'You have already voted!';
+                confirmationElement.style.color = 'red';
                 return; // Exit the function
             }
             const name = document.getElementById('name').value;
