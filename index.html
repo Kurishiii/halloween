@@ -81,7 +81,7 @@
         async function handleSubmit(event) {
             event.preventDefault(); // Prevent the default form submission
 
-            if (localStorage.getItem('hasVoted')) {
+            if (localStorage.hasVoted) {
                 document.getElementById('confirmation').innerText = 'You have already voted!';
                 return; // Exit the function
             }
@@ -100,7 +100,7 @@
             });
 
             if (response.ok) {
-                localStorage.setItem('hasVoted', 'true'); // Set the flag that the user has voted
+                localStorage.hasVoted = 1; // Set the flag that the user has voted
                 document.getElementById('confirmation').innerText = 'Vote sent✅';
             } else {
                 document.getElementById('confirmation').innerText = 'Error sending vote. Please try again.';
