@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween Costume Contest Voting</title>
+    <title>halloween costume contest voting</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,36 +17,40 @@
 
         h1 {
             font-size: 3em;
-            color: #800080;
-            text-shadow: 2px 2px 5px #4B0082;
+            color: #ff0000; /* changed to red */
+            text-shadow: 2px 2px 5px #800000; /* darker red shadow */
         }
 
         p {
             font-size: 1.5em;
             margin: 20px 0;
             color: #ccc;
+            text-transform: lowercase; /* make text lowercase */
         }
 
         form {
-            background: rgba(128, 0, 128, 0.8);
-            padding: 20px;
+            background: rgba(255, 0, 0, 0.8); /* changed to red */
+            padding: 40px; /* increased padding for a bigger box */
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(128, 0, 128, 0.7);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7); /* changed to red */
             display: inline-block;
+            width: 80%; /* set width to control the size */
+            max-width: 600px; /* maximum width for larger screens */
+            margin: 0 auto; /* center the form */
         }
 
         input, select, textarea {
-            width: 100%;
+            width: calc(100% - 22px); /* adjusted for even edges */
             padding: 10px;
             margin: 10px 0;
-            border: 2px solid #800080;
+            border: 2px solid #ff0000; /* changed to red */
             border-radius: 5px;
             background-color: #222;
             color: #fff;
         }
 
         button {
-            background-color: #4B0082;
+            background-color: #800000; /* darker red */
             color: #fff;
             padding: 15px;
             border: none;
@@ -57,7 +61,7 @@
         }
 
             button:hover {
-                background-color: #551A8B;
+                background-color: #a00000; /* darker red on hover */
             }
 
         .spooky-background {
@@ -74,23 +78,23 @@
         #confirmation {
             margin-top: 20px;
             font-size: 1.5em;
-            color: #00ff00; /* Green color for confirmation message */
+            color: #00ff00; /* green color for confirmation message */
         }
     </style>
     <script>
         async function handleSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault(); // prevent the default form submission
 
             if (localStorage.hasVoted) {
                 const confirmationElement = document.getElementById('confirmation');
-                confirmationElement.innerText = 'You have already voted!';
-                confirmationElement.style.color = 'red'; // Change color to red
-                return; // Exit the function
+                confirmationElement.innerText = 'you have already voted!';
+                confirmationElement.style.color = 'red'; // change color to red
+                return; // exit the function
             }
             const name = document.getElementById('name').value;
             const comment = document.getElementById('comment').value;
 
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzl1uLlDDTTWUR0tZC1m6tiornLUwTXnttg95N53BPdt5DYKo8VOxGXzwh3fp2CKWc6/exec', { // Replace with your web app URL
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzl1uLlDDTTWUR0tZC1m6tiornLUwTXnttg95N53BPdt5DYKo8VOxGXzwh3fp2CKWc6/exec', { // replace with your web app URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -102,10 +106,10 @@
             });
 
             if (response.ok) {
-                localStorage.hasVoted = 1; // Set the flag that the user has voted
-                document.getElementById('confirmation').innerText = 'Vote sent✅';
+                localStorage.hasVoted = 1; // set the flag that the user has voted
+                document.getElementById('confirmation').innerText = 'vote sent✅';
             } else {
-                document.getElementById('confirmation').innerText = 'Error sending vote. Please try again.';
+                document.getElementById('confirmation').innerText = 'error sending vote. please try again.';
             }
         }
     </script>
@@ -115,27 +119,27 @@
 
     <div class="spooky-background"></div>
 
-    <h1>👻 Spooktacular Costume Contest Voting 🎃</h1>
-    <p>Cast your vote for the best costume!</p>
+    <h1>👻 vote for your favorite halloween costume! 🎃</h1>
+    <p>choose your best costume winner!</p>
 
     <form onsubmit="handleSubmit(event)">
-        <label for="name">Who are you voting for? :</label>
+        <label for="name">who are you voting for? (describe their costume) :</label>
         <input type="text" id="name" name="name" required>
 
-        <label for="comment">Leave your hosts a secret message ;) </label>
+        <label for="comment">tell jules, christian, and gwen a secret message. (we'll keep your secret)' ;) </label>
         <input type="text" id="comment" name="comment" required>
 
-        <button type="submit">Cast Your Creepy Vote!</button>
+        <button type="submit">submit!</button>
     </form>
 
     <div id="confirmation"></div>
 
     <div class="qr-code">
-        <h2>Scan To Join Our Halloween Party POV!</h2>
+        <h2>share us your pov tn📷</h2>
         <a target="_blank" href="https://pov.camera/qr/7086DC21-2B8D-48C5-9E69-1211AE90FCE1">
-            <img src="img/pov.jpeg" alt="QR CODE" width="150" height="250" />
+            <img src="img/pov.jpeg" alt="qr code" width="150" height="250" />
         </a>
-        <h3>Thank you ! ;)</h3>
+        <h3>thank you ! ;)</h3>
     </div>
 
 </body>
