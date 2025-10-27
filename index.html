@@ -188,7 +188,7 @@
             event.preventDefault();
 
             const confirmationElement = document.getElementById('confirmation');
-            if (localStorage.hasVoted) {
+            if (localStorage.hasVoted2025) {
                 confirmationElement.innerText = 'you have already voted!';
                 confirmationElement.style.color = 'red';
                 return;
@@ -211,7 +211,7 @@
                 });
 
                 if (response.ok) {
-                    localStorage.hasVoted = 1;
+                    localStorage.hasVoted2025 = 1;
                     confirmationElement.innerText = 'vote sent ✅';
                     confirmationElement.style.color = '#00ff00';
                 } else {
