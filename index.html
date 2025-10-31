@@ -31,6 +31,9 @@
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
+        .spooky-background {
+            background-size: cover;
+        }
 
         /* HEADER */
         h1 {
@@ -65,9 +68,11 @@
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
             display: inline-block;
             padding: 40px 30px;
-            width: 90%;
-            max-width: 600px;
+            width: 100%;
+            max-width: 500px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         form:hover {
@@ -127,6 +132,13 @@
             text-shadow: 0 0 10px #00ff00;
         }
 
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         /* QR CODE SECTION */
         .qr-code {
             margin-top: 50px;
@@ -179,8 +191,16 @@
 
         /* MOBILE RESPONSIVE */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2em; }
-            form { padding: 25px; }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+            button {
+                font-size: 1em;
+                padding: 12px;
+            }
         }
     </style>
     <script>
@@ -238,20 +258,22 @@
     <img src="img/spooky.png" class="bat" alt="bat">
     <img src="img/spooky.png" class="bat" alt="bat">
 
-    <h1>👻Vote for Your Favorite Halloween Costume!🎃</h1>
-    <p>choose your best costume winner!</p>
+    <div class="container">
+   <h1>👻 Spooktacular Costume Contest Voting 🎃</h1>
+   <p>Cast your vote for the best costume!</p>
 
-    <form onsubmit="handleSubmit(event)">
-        <label for="name">who are you voting for? (describe their costume):</label>
-        <input type="text" id="name" name="name" required>
+   <form onsubmit="handleSubmit(event)">
+      <label for="name">Who are you voting for? :</label>
+      <input type="text" id="name" name="name" required>
 
-        <label for="comment">tell jules, christian, and gwen a secret message (we'll keep it ;) ):</label>
-        <input type="text" id="comment" name="comment" required>
+      <label for="comment">Leave your hosts a secret message ;) </label>
+      <input type="text" id="comment" name="comment" required>
 
-        <button type="submit">submit!</button>
-    </form>
+      <button type="submit">Cast Your Creepy Vote!</button>
+   </form>
 
-    <div id="confirmation"></div>
+   <div id="confirmation"></div>
+</div>
 
     <div class="qr-code">
         <h2>share us your pov tn 📷, click below</h2>
@@ -263,4 +285,5 @@
 
 </body>
 </html>
+
 
